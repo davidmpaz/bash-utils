@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#
+# this scripts paste the srt files into the avi file and then convert
+# it to mpg for viewing in home dvd player. this make the same as "mpgencode"
+# script and a plus of pasting the srt files.
+#
+# It uses the pastestr script
+#
+
+cd "$1"
+`rename 's/ /_/g' *`
+files=`ls -1 | grep .avi`
+cd
+
+for film in $files
+do
+  pastestr "$1$film" && ffmpeg -i "$1$film" -b 1262k -r 29.97 "$1$film".mpg
+done
+

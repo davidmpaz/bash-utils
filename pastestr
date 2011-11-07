@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# This script paste subtitles to AVI files. Assuming that
+# the srt files has the same name as the avi file and are
+# in the same folder.
+#
+
+srt=${1%%.avi}.srt
+mencoder -sub "$srt" -ovc xvid -xvidencopts bitrate=-700000 -oac copy -o "$1.pasted" "$1"
+mv "$1.pasted" "$1"

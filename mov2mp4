@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#
+# This script reduce video quality and resolution (and so the size in MB) so it 
+# can be viewed in cell phones that reads 3gp like formats, expected video extension 
+# is .MOV as obtained from KODAK C122 DIGITAL CAMERA :).This is a very specific script
+#
+# To use the option: -acodec libopencore_amrnb, your system must have support to amrnb, so ffmpeg
+# should be compiled with this
+#
+# Will apply this command to all .MOVs in directory passed
+#ffmpeg -y -i $1 -b 131k -r 15 -s 176x144 -acodec libopencore_amrnb -ab 12.2k $1".3gp"
+
+files=`ls "$1" -1 | grep .MOV`
+
+for film in $files
+do
+	ffmpeg -y -i "$1"$film -b 131k -r 15 -s 176x144 -acodec libopencore_amrnb -ab 12.2k "$1"$film".3gp"
+done
+

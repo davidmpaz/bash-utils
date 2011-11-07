@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#
+# This just play with menconder all files rigth under the
+# directory given
+#
+find "$1" -name *.mp3 -exec mplayer '{}' +
+

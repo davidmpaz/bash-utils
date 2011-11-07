@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#
+# This script trim trailing white spaces
+# from files in the directory passed that
+# match specific extensions. The directory
+# must be absolute, not tested in relative 
+# directories.
+# 
+# NOT FINISHED
+#
+# It makes use of the ttws scripts, THIS NEED TO BE IN EXECUTION PATH.
+#
+ext='-name "*.php" -o -name "*.ini" -o -name "*.yml" -o -name "*.txt" -o -name "*.md" -o -name "*.markdown" -o -name "*.css" -o -name "*.html" -o -name "*.java" -o -name "*.sql"'
+
+`find $1 -type f \( $ext \) -print`
+

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#
+# This script reduce size of images in 30%, 
+# you must pass an absolute path to the tool.
+#
+# The more % the more quality, so keep it low to reduce it.
+#
+
+files=`ls "$1" -1`
+
+for pict in $files
+do
+	convert "$1"$pict -resize 30% "$1"converted-$pict
+done

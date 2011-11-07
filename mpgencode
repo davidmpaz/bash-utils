@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#
+# This script convert to mpg the files in directory,
+# you must pass an absolute path to the tool.
+#
+# This is for view films in home DVD, the f@#$% device
+# doesn't read files as data if doesnt come with these params
+#
+
+cd "$1"
+`rename 's/ /_/g' *`
+
+files=`ls -1`
+
+for film in $files
+do
+  #ffmpeg -i "$1$film" -b 1262k -r 29.97 -s 352x240 "$1$film".mpg
+  ffmpeg -i "$1$film" -b 1262k -r 29.97 "$1$film".mpg
+done

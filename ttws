@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#
+# This script remove all trailing white spaces
+# from the file passed.
+#
+cat "$1" | sed 's/[ \t]*$//' > "$1".trimmed
+mv "$1".trimmed "$1"

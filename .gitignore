@@ -1,0 +1,12 @@
+#ignore all but selected
+*
+!.gitignore
+!dvdencode
+!imgconvert
+!mov2mp4
+!mpgencode
+!pastestr
+!playmusic
+!trimfilesws
+!ttws
+
