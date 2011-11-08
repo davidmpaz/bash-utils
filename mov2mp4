@@ -13,8 +13,8 @@
 
 files=`ls "$1" -1 | grep .MOV`
 
-for film in $files
+for film in "$files"
 do
-	ffmpeg -y -i "$1"$film -b 131k -r 15 -s 176x144 -acodec libopencore_amrnb -ab 12.2k "$1"$film".3gp"
+	ffmpeg -y -i "$1$film" -b 131k -r 15 -s 176x144 -acodec libopencore_amrnb -ab 12.2k "$1$film.3gp"
 done
 
