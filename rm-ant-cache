@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#
+# This remove entries from an ant deployment cache file passed as last argument
+# the files to remove are extracted from git, due to this it should be run under 
+# git repo. The deployment is assumed to be made with ant-scp task.
+#
+# The comparison is made against master branch so every new feature is assumed to 
+# be in a new branch. 
+#
+
+for i in `git diff --name-only master $1` 
+do
+    sed -i "\|$i|d" $2;
+done
