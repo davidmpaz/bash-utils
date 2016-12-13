@@ -13,3 +13,4 @@
 !rm-ant-cache
 !find-src-refs
 !README.md
+!powerlevel9k.setup.sh
