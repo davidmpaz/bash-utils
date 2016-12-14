@@ -25,7 +25,7 @@ POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON=" \uf0aa "
 POWERLEVEL9K_VCS_BOOKMARK_ICON="\uf097 "
 
 get_icon_by_repo() {
-  local remote=`git ls-remote --get-url`
+  local remote=`git ls-remote --get-url 2>/dev/null`
   if [[ "$remote" =~ "github" ]] then
     POWERLEVEL9K_VCS_GIT_ICON='\uf113 '
   elif [[ "$remote" =~ "bitbucket" ]] then
