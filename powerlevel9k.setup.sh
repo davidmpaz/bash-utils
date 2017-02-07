@@ -14,8 +14,9 @@ POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \uf073 %d.%m.%y}"
 
 # icons, since we get them replaced
-POWERLEVEL9K_OK_ICON="\uf14a"
-POWERLEVEL9K_FAIL_ICON="\uf0e7"
+POWERLEVEL9K_OK_ICON="\ue007"
+POWERLEVEL9K_FAIL_ICON="\uf188"
+WERLEVEL9K_HOME_ICON="\uf19c"
 POWERLEVEL9K_VCS_BRANCH_ICON="\uF126 "
 POWERLEVEL9K_VCS_STASH_ICON=" \uf0ea "
 POWERLEVEL9K_VCS_COMMIT_ICON="\uf0c7 "
@@ -23,19 +24,4 @@ POWERLEVEL9K_VCS_TAG_ICON="\uf11e "
 POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON=" \uf0ab "
 POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON=" \uf0aa "
 POWERLEVEL9K_VCS_BOOKMARK_ICON="\uf097 "
-
-get_icon_by_repo() {
-  local remote=`git ls-remote --get-url 2>/dev/null`
-  if [[ "$remote" =~ "github" ]] then
-    POWERLEVEL9K_VCS_GIT_ICON='\uf113 '
-  elif [[ "$remote" =~ "bitbucket" ]] then
-    POWERLEVEL9K_VCS_GIT_ICON='\uf171 '
-  elif [[ "$remote" =~ "gitlab" ]] then
-    POWERLEVEL9K_VCS_GIT_ICON='\uf296 '
-  else
-    POWERLEVEL9K_VCS_GIT_ICON='\uf1d3 '
-  fi
-}
-
-get_icon_by_repo
 

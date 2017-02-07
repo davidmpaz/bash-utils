@@ -1,0 +1,75 @@
+[user]
+    name = David Paz 
+    email = davidmpaz@gmail.com
+[http]
+    #proxy=192.168.52.15:3128
+    #proxy=dpr:shak3r[123]@10.12.2.172:8213
+    #proxy=amorales:tres+5es8@127.0.0.1:8888
+    #sslVerify=false
+    postBuffer=524288000
+[credential]
+    helper = cache --timeout=3600
+
+[core]
+    editor = vim
+    autocrlf = input
+
+[push]
+    default = simple
+
+[mergetool "meld"]
+    path = meld 
+    trustExitCode = false
+
+[log]
+    date = relative
+
+[alias]
+    co  = checkout
+    cm  = commit
+    df  = diff
+    st  = status
+    flog = log --pretty=format:\"%h - %an, %ar : %s\" --stat
+    glog = log --pretty=format:\"%h - %ar : %s\" --stat --graph
+    olog = log --oneline
+    # only pack files changed betwen commits passed
+    packupdates = "!f() { git archive -o pack-$1-$2.zip HEAD $(git diff --name-only $1...$2); }; f"
+    # pack everything from a branch 
+    packrelease = "!f() { git archive -o pack-$1.zip --format zip  $1; }; f"
+    # gives files changed from master to the branch name passed
+    listchanged = "!f() { git diff --name-only master...$1; }; f"
+    # remove on git deleted files by hand
+    remove = "!f() { git rm $(git ls-files --deleted);  }; f"
+    # ever added files in a commit that shouldn't be there? this remove them all
+    rm-ff-cm = "!f() { git rm $(git diff-tree --no-commit-id --name-only -r $1);  }; f"
+    # gitignore.io
+    gi = "!f() { curl http://www.gitignore.io/api/$@ ; }; f"
+    # delete featured branch by regex
+    rmf = "!f() { git branch -d $(git for-each-ref --format='%(refname:short)' refs/heads/$1*); }; f"
+    # delete featured branch already merged into current branch
+    rmm = "!f() { git branch --merged | grep -v '*' | xargs -n 1 git branch -d; }; f"
+    rmtag = "!f() { git tag -d $1 && git push origin :refs/tags/$1; }; f"
+
+[color]
+    branch = auto
+    diff = auto
+    grep = auto
+    interactive = auto
+    pager = true
+    showbranch  = auto
+    status = auto
+    ui = true
+[color "diff"]
+    meta            = cyan  normal bold
+    old             = red normal bold
+    new             = green normal bold
+[color "branch"]
+    remote          = cyan normal bold
+    local           = normal normal ul
+    current         = green normal bold
+[color "status"]
+    header          = cyan normal bold
+    added           = green normal bold
+    changed         = magenta normal bold
+    untracked       = red normal bold
+
