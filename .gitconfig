@@ -2,9 +2,7 @@
     name = David Paz 
     email = davidmpaz@gmail.com
 [http]
-    #proxy=192.168.52.15:3128
-    #proxy=dpr:shak3r[123]@10.12.2.172:8213
-    #proxy=amorales:tres+5es8@127.0.0.1:8888
+    #proxy=user:password@ip-address:port
     #sslVerify=false
     postBuffer=524288000
 [credential]
