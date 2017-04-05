@@ -15,21 +15,10 @@
 [push]
     default = simple
 
-[mergetool "meld"]
-    path = meld 
-    trustExitCode = false
-
 [log]
     date = relative
 
 [alias]
-    co  = checkout
-    cm  = commit
-    df  = diff
-    st  = status
-    flog = log --pretty=format:\"%h - %an, %ar : %s\" --stat
-    glog = log --pretty=format:\"%h - %ar : %s\" --stat --graph
-    olog = log --oneline
     # only pack files changed betwen commits passed
     packupdates = "!f() { git archive -o pack-$1-$2.zip HEAD $(git diff --name-only $1...$2); }; f"
     # pack everything from a branch 
