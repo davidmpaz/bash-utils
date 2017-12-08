@@ -15,3 +15,4 @@
 !README.md
 !powerlevel9k.setup.sh
 !.gitconfig
+!.pre-commit-hooks.yaml

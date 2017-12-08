@@ -1,0 +1,12 @@
+id: phpcs
+    name: PHP_CodeSniffer
+    description: This hook run php sniffer.
+    entry: phpcs
+    language: system
+    types: [text]
+id: lint
+    name: PHP Parallel lint
+    description: This hooks run php linter.
+    entry: php-parallel-lint
+    language: system
+    types: [text]
