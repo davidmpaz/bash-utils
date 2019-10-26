@@ -16,3 +16,4 @@
 !powerlevel9k.setup.sh
 !.gitconfig
 !.pre-commit-hooks.yaml
+!lock-screen

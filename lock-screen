@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#
+# This script overrides session default lock screen css styles 
+# Change image to change the background used in lockscreen 
+#
+
+# find old declaration and deletes it
+START_LINE=`awk '/lockDialogGroup/{ print NR; exit }' /usr/share/gnome-shell/theme/ubuntu.css`
+END_LINE=`expr "$START_LINE" + 3`
+sed -i.bak -e "${START_LINE},${END_LINE}d" /usr/share/gnome-shell/theme/ubuntu.css
+
+sudo cat <<EOT >> /usr/share/gnome-shell/theme/ubuntu.css
+#lockDialogGroup {
+  background: #2c001e url(file:///home/shak/Pictures/wallpapers/lockscreen.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+EOT
