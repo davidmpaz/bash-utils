@@ -17,3 +17,4 @@
 !.gitconfig
 !.pre-commit-hooks.yaml
 !lock-screen
+!prepare-commit-msg
